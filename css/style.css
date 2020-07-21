@@ -1051,6 +1051,7 @@ body.dark .aside .nav li a{
 }
 
 body.dark .aside,
+body.dark .blog .blog-item-inner,
 body.dark .contact .contact-form .form-item .form-control,
 body.dark .portfolio .portfolio-item-inner,
 body.dark .service .service-item .service-item-inner,

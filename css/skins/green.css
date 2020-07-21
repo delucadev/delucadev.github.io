@@ -39,6 +39,8 @@ body.dark .aside .nav li a.active,
     background-color: #72b626;
 }
 
+
+.home .intro img,
 .portfolio .portfolio-filter button.active{
     border-color:  #72b626;
 }
