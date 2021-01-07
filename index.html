@@ -593,12 +593,20 @@
               <div class="row">
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
+<<<<<<< HEAD
                     <input name="name" type="text" class="form-control" placeholder="Nome*" required/>
+=======
+                    <input name="name" type="text" class="form-control" placeholder="Name*" required="true" />
+>>>>>>> 2bcbc1dec856a381ac5be1dde40854000fb9ae41
                   </div>
                 </div>
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
+<<<<<<< HEAD
                     <input name="email" type="email" class="form-control" placeholder="Email*" required/>
+=======
+                    <input  name="email"  type="email" class="form-control" placeholder="Email*" required="true" />
+>>>>>>> 2bcbc1dec856a381ac5be1dde40854000fb9ae41
                   </div>
                 </div>
               </div>
@@ -606,7 +614,11 @@
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
+<<<<<<< HEAD
                     <input name="subject" type="text" class="form-control" placeholder="Assunto*" />
+=======
+                    <input name="subject" type="text" class="form-control" placeholder="Subject*" />
+>>>>>>> 2bcbc1dec856a381ac5be1dde40854000fb9ae41
                   </div>
                 </div>
               </div>
@@ -614,18 +626,31 @@
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
+<<<<<<< HEAD
                     <textarea name="message" type="text" class="form-control" placeholder="Sua mensagem aqui..." required="true"></textarea>
+=======
+                    <textarea name="message" type="text" class="form-control" placeholder="Your message here..." required="true"></textarea>
+>>>>>>> 2bcbc1dec856a381ac5be1dde40854000fb9ae41
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-12 box-btn padd-15">
+<<<<<<< HEAD
                   <button name="Send" type="submit" class="btn" id="btn-form">Enviar Mensagem</button>
                 </div>
               </div>
               <div class="row" id="status-form">
 
+=======
+                  <button name="Send" type="submit" class="btn" id="btn-form">Send Message</button>
+                </div>
+              </div>
+
+              <div class="row" id="status-form">
+                
+>>>>>>> 2bcbc1dec856a381ac5be1dde40854000fb9ae41
               </div>
             </form>
           </div>
@@ -735,6 +760,57 @@
     });
   });
 
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+</script>
+
+<script src="js/jquery-3.5.1.min.js"></script>
+
+<!-- then override glossary values -->
+<script type="text/javascript">
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+    var form = document.getElementById("contact-form");
+    var button = document.getElementById("btn-form");
+    var status = document.getElementById("status-form");
+
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      //button.style = "display: none ";
+      status.innerHTML = "Thanks!";
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem.";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      ajax(form.method, form.action, data, success, error);
+    });
+  });
+  
   // helper function for sending an AJAX request
 
   function ajax(method, url, data, success, error) {
